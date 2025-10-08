@@ -1,0 +1,52 @@
+package vehicle;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class MainClass {
+	public static void main(String[] args) throws undercc, negativecc {
+		Scanner sc=new Scanner(System.in);
+		ArrayList<VehiclesAbstract> vehicles = new ArrayList<>();
+		 System.out.print("How many vehicles you want to add? ");
+	        int n = sc.nextInt();
+	        sc.nextLine();
+	        for (int i = 1; i <= n; i++) {
+	        	 System.out.print("Enter type (car/bike): ");
+	        	 String vehicletype=sc.next();
+	        	 System.out.print("Enter brand: ");
+	             String brand = sc.nextLine();
+
+	             System.out.print("Enter color: ");
+	             String color = sc.nextLine();
+
+	             System.out.print("Enter price: ");
+	             double price = sc.nextDouble();
+
+	             System.out.print("Enter engine CC: ");
+	             int cc = sc.nextInt();
+	             sc.nextLine();
+	             if(vehicletype.equals("car")) {
+	            	 Car c = new Car(brand, color, price, cc);
+	                    vehicles.add(c);
+	                    c.start();
+	                    c.drive();
+	                    c.stop();
+	             }
+	             else if (vehicletype.equals("bike")) {
+	                    Bike b = new Bike(brand, color, price, cc);
+	                    vehicles.add(b);
+	                    b.start();
+	                    b.ride();
+	                    b.stop();
+	                }
+	             else {
+	            	 System.out.println("invalid vehicle");
+	             }
+	        }
+	        System.out.println("all vehicles");
+	        for(VehiclesAbstract v:vehicles) {
+	        	System.out.println(v);
+	        }
+	}
+
+}
