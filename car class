@@ -1,0 +1,42 @@
+package vehicle;
+
+import java.awt.Color;
+
+class Car extends VehiclesAbstract {
+    private int carCC;
+
+    public Car(String brand, String color, double price, int carCC)
+            throws undercc, negativecc {
+        setBrand(brand);
+        setColor(color);
+        setPrice(price);
+
+        if (carCC < 0)
+            throw new negativecc();
+        else if (carCC < 800)
+            throw new undercc();
+        else
+            this.carCC = carCC;
+    }
+
+    void drive() {
+        System.out.println(getBrand() + " car with " + carCC + " CC is driving!");
+    }
+
+    @Override
+    public void start() {
+        System.out.println(getBrand() + " car started ");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println(getBrand() + " car stopped ");
+    }
+
+	@Override
+	public String toString() {
+		return "Car [carCC=" + carCC + "]";
+	}
+
+   
+}
