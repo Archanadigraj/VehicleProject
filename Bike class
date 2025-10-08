@@ -1,0 +1,41 @@
+package vehicle;
+
+class Bike extends VehiclesAbstract {
+    private int bikeCC;
+
+    public Bike(String brand, String color, double price, int bikeCC)
+            throws undercc, negativecc {
+        setBrand(brand);
+        setColor(color);
+        setPrice(price);
+
+        if (bikeCC < 0)
+            throw new negativecc();
+        else if (bikeCC < 100)
+            throw new undercc(); 
+        else
+            this.bikeCC = bikeCC;
+    }
+
+    public void ride() {
+        System.out.println(getBrand() + " bike with " + bikeCC + " CC is riding ");
+    }
+
+    @Override
+    public void start() {
+        System.out.println(getBrand() + " bike started ");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println(getBrand() + " bike stopped ");
+    }
+
+	@Override
+	public String toString() {
+		return "Bike [bikeCC=" + bikeCC + "]";
+	}
+
+    
+   
+}
