@@ -1,0 +1,18 @@
+package vehicle;
+
+import java.util.Scanner;
+
+class undercc extends Exception{
+public void getMessege() {
+	System.out.println(" exeption occuer :car cc must be grater than 800");
+	
+}
+}
+ class negativecc extends Exception{
+	 public void getMessege() {
+		 System.out.println("cc can not be negative");
+	 }
+	 
+ }
+
+ 
